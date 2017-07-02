@@ -8,11 +8,7 @@ function searchCountries() {
 if(!countryName.length) countryName = 'Poland';
 }
     
-    $.ajax ({
-        url :  'https://restcountries.eu/rest/v1/name/' + countryName,
-        method : 'GET',
-        success : showCountryList,
-    });
+    
 
 
 function showCountriesList(resp) {
@@ -22,5 +18,12 @@ resp.forEach(function(item) {
    	$('<li>').text(item.name).appendTo(countriesList);
 });
 
+   		$.ajax ({
+        url :  'https://restcountries.eu/rest/v1/name/' + countryName,
+        method : 'GET',
+        success : showCountryList,
+    });
+
 });
 }
+
